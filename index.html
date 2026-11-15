@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>葛雪峰 · AIGC 视觉设计师 · 作品集</title>
+<meta name="description" content="葛雪峰 · AIGC 视觉设计师作品集（游戏视觉方向）：配色构成、光影把控、ComfyUI 工作流、游戏视觉落地、AI 动态视觉与 LoRA 风格定制六大能力板块。">
+<meta property="og:title" content="葛雪峰 · AIGC 视觉设计师 · 作品集">
+<meta property="og:description" content="配色 / 光影 / ComfyUI 工作流 / 游戏视觉落地 / 动态视觉 / LoRA 定制">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%235b7cfa'/><stop offset='1' stop-color='%23a45bda'/></linearGradient></defs><circle cx='50' cy='50' r='42' fill='url(%23g)'/></svg>">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- 背景光斑 -->
+<div class="glow" aria-hidden="true">
+  <span class="g1"></span><span class="g2"></span><span class="g3"></span>
+</div>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="dot"></span>
+      <span>
+        <span id="brandName">葛雪峰</span>
+        <small id="brandSub">AIGC 视觉设计师</small>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#showcase">精选</a>
+      <a href="#about">关于</a>
+      <a href="#tools">能力</a>
+      <a href="#works">作品</a>
+      <a href="#capability">服务</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <a class="nav-cta" href="#contact">聊聊合作</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-tag"><i></i><span id="heroRole">AIGC 视觉设计师</span></div>
+      <h1 id="heroTitle">用 AIGC 把抽象需求<br><span class="grad">变成可落地的视觉方案</span></h1>
+      <p class="hero-sub" id="heroSub"></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#works">查看精选作品 →</a>
+        <a class="btn btn-ghost" href="assets/GeXuefeng_AIGC_Portfolio.pdf" download>下载 PDF 作品集 ↓</a>
+        <a class="btn btn-ghost" href="#contact">联系我</a>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </section>
+
+
+  <!-- SHOWCASE：首屏精选轮播（图片 / 视频） -->
+  <section id="showcase">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-label">01 / Selected</div>
+          <h2 class="sec-title">精选展示</h2>
+        </div>
+        <p class="sec-desc">先看最满意的几张 —— 图片或视频都行，每 5 秒自动轮换，鼠标停住就暂停。</p>
+      </div>
+
+      <div class="carousel reveal" id="carousel">
+        <div class="stage" id="stage" role="region" aria-label="精选作品轮播" tabindex="0"></div>
+        <button class="car-btn prev" id="carPrev" type="button" aria-label="上一个">‹</button>
+        <button class="car-btn next" id="carNext" type="button" aria-label="下一个">›</button>
+        <div class="car-count mono" id="carCount"></div>
+        <div class="car-dots" id="carDots" role="tablist" aria-label="轮播导航"></div>
+      </div>
+
+      <div class="focus-row reveal">
+        <span class="focus-label">专注方向</span>
+        <div class="focus-tags" id="focusTags"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-label">02 / About</div>
+          <h2 class="sec-title">关于我</h2>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img id="aboutAvatar" src="assets/img/avatar.svg" alt="头像">
+        </div>
+        <div class="about-text reveal">
+          <h3 id="aboutTitle"></h3>
+          <div id="aboutText"></div>
+          <div class="about-meta" id="aboutMeta"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-label">03 / Capability</div>
+          <h2 class="sec-title">工具与能力矩阵</h2>
+        </div>
+        <p class="sec-desc">不是会点按钮，而是能把生成结果控制到可交付标准 —— 控制构图、统一品牌色、锁定角色一致性、修掉生成瑕疵。</p>
+      </div>
+      <div class="tools-grid" id="toolsGrid"></div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-label">04 / Selected Works</div>
+          <h2 class="sec-title">精选作品</h2>
+        </div>
+        <p class="sec-desc">六大能力板块，每个都按「需求 → 控制 → 生成 → 精修 → 落地」拆解，点开可看大图。</p>
+      </div>
+      <div class="works-list" id="worksList"></div>
+
+      <div style="margin-top:78px">
+        <div class="sec-head reveal">
+          <div>
+            <div class="sec-label">05 / Snippets</div>
+            <h2 class="sec-title">作品片段</h2>
+          </div>
+          <p class="sec-desc">单点能力切片：色板方案、时段光影、活动物料、动态静帧与 LoRA 出样。</p>
+        </div>
+        <div class="snip-grid" id="snipGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="capability">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-label">06 / Services</div>
+          <h2 class="sec-title">我能提供什么</h2>
+        </div>
+        <p class="sec-desc">按交付物划分，方便你判断能不能直接对上需求。</p>
+      </div>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding-bottom:130px">
+    <div class="container">
+      <div class="contact reveal">
+        <div>
+          <h2 id="contactTitle"></h2>
+          <p id="contactDesc"></p>
+          <a class="btn btn-primary" href="mailto:1578758776@qq.com">发邮件给我 →</a>
+          <a class="btn btn-ghost" href="assets/GeXuefeng_AIGC_Portfolio.pdf" download>下载 PDF 作品集 ↓</a>
+          <a class="btn btn-ghost" href="tel:15313630679">打电话给我 →</a>
+        </div>
+        <div class="contact-list" id="contactList"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <span class="mono" id="footNote">AIGC PORTFOLIO</span>
+    <span class="mono">© <span id="footYear">2026</span> · Built as a static site</span>
+  </div>
+</footer>
+
+<!-- 灯箱 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="查看大图">
+  <span class="close" aria-hidden="true">×</span>
+  <img src="" alt="">
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js" defer></script>
+</body>
+</html>

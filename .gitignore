@@ -1,0 +1,5 @@
+# local preview / dev cruft
+_preview/
+# OS
+Thumbs.db
+.DS_Store
