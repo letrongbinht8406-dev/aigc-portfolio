@@ -240,6 +240,24 @@ window.PORTFOLIO = {
       cover: "assets/video/car_tvc_sof_poster.jpg",
       href: "case-video.html",
       tags: ["视频成片", "迭代对照", "6 模型"]
+    },
+    {
+      num: "03",
+      kicker: "GUOFENG FESTIVAL KV",
+      title: "国风节庆 KV · 四时流转",
+      desc: "覆盖春节 / 夏日祭 / 中秋 / 秋景四个节令的国风视觉，从完整活动 KV（含 Logo 与 slogan）到节日海报，展示国风美学在商业活动与艺术表达之间的切换。",
+      cover: "assets/guofeng/ruixue_kv.jpg",
+      href: "case-guofeng.html",
+      tags: ["国风节庆", "活动 KV", "Q 版 / 写实"]
+    },
+    {
+      num: "04",
+      kicker: "FASHION EDITORIAL",
+      title: "时尚大片 · 四联时装与人像",
+      desc: "LA LUMIÈRE PARIS 四联时装大片，加潮流插画 / 情绪时尚 / 油画质感三张人像，展示成组调性统一与单张人物质感两种高难度能力。",
+      cover: "assets/fashion/lumiere_quad.jpg",
+      href: "case-fashion.html",
+      tags: ["时尚大片", "四联成组", "人物质感"]
     }
   ],
 
