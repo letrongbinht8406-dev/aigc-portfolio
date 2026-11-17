@@ -166,6 +166,19 @@
     }).join(""));
   }
 
+  /* ---------- 6.5 灵感库（瀑布流图库） ---------- */
+  function renderInspiration() {
+    var items = D.inspiration || [];
+    var grid = el("#inspGrid");
+    if (!grid) return;
+    setHTML("#inspGrid", items.map(function (s) {
+      return '<figure class="insp reveal">' +
+        '<img class="zoomable" src="' + esc(s.img) + '" alt="' + esc(s.cap) + '" loading="lazy">' +
+        '<figcaption class="insp-cap"><span class="insp-tag">' + esc(s.tag || "") + '</span>' + esc(s.cap) + "</figcaption>" +
+        "</figure>";
+    }).join(""));
+  }
+
   /* ---------- 7. 服务能力 ---------- */
   function renderServices() {
     setHTML("#svcGrid", (D.services || []).map(function (s) {
@@ -397,6 +410,7 @@
     renderWorks();
     renderCases();
     renderSnippets();
+    renderInspiration();
     renderServices();
     renderContact();
     initNav();

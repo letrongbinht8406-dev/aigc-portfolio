@@ -273,6 +273,25 @@ window.PORTFOLIO = {
     { img: "assets/img/snip-lora-ba.jpg",  cap: "LoRA 风格化前后对比" }
   ],
 
+  /* ---------- 6.5 灵感库（参与项目精选图） ---------- */
+  inspiration: [
+    { img: "assets/inspiration/white-dress-flow.jpg", cap: "白裙飞扬 · 动态服装大片", tag: "人像 / 服装" },
+    { img: "assets/inspiration/outdoor-fitness.jpg", cap: "户外运动 · 山野人像", tag: "人像 / 户外" },
+    { img: "assets/inspiration/window-reading.jpg", cap: "窗边合书 · 静谧氛围", tag: "人像 / 氛围" },
+    { img: "assets/inspiration/pocket-watch-city.jpg", cap: "怀表齿轮 · 微缩机械都市", tag: "微缩 / 机械" },
+    { img: "assets/inspiration/red-dress-sunset.jpg", cap: "红裙日落 · 民俗户外写真", tag: "人像 / 民俗" },
+    { img: "assets/inspiration/neon-triptych.jpg", cap: "霓虹光影 · 未来科技人像三联", tag: "电影感 / 三联" },
+    { img: "assets/inspiration/miniature-painter.jpg", cap: "指尖微观 · 迷你画师创作", tag: "微缩 / 创意" },
+    { img: "assets/inspiration/low-angle-architecture.jpg", cap: "大透视仰拍 · 建筑光影", tag: "建筑 / 透视" },
+    { img: "assets/inspiration/blue-cable-car.jpg", cap: "蓝调缆车 · 滑雪制服写真", tag: "人像 / 制服" },
+    { img: "assets/inspiration/candle-product.jpg", cap: "香薰蜡烛 · 产品静物", tag: "产品 / 静物" },
+    { img: "assets/inspiration/pool-morning-light.jpg", cap: "泳池晨光 · 柔雾人像", tag: "人像 / 光影" },
+    { img: "assets/inspiration/sand-dune-telescope.jpg", cap: "沙丘战损 · 科幻望远镜", tag: "场景 / 科幻" },
+    { img: "assets/inspiration/deep-sea-diving.jpg", cap: "深海夺珠 · 废墟航行", tag: "场景 / 水下" },
+    { img: "assets/inspiration/warm-red-hair.jpg", cap: "窗外暖光 · 红发人像", tag: "人像 / 暖光" },
+    { img: "assets/inspiration/orange-still-life.jpg", cap: "橙子场景 · 商业静物", tag: "静物 / 商业" }
+  ],
+
   /* ---------- 7. 服务能力 ---------- */
   services: [
     {
