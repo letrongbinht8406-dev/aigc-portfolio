@@ -328,7 +328,7 @@ window.PORTFOLIO = {
     { img: "assets/inspiration/eyrove-rv-jimeng-73635439102bab560c55b7991eec.webp", cap: "绘本插画 · 涂鸦贴纸风（EYROVE）", tag: "插画 / 绘本" },
     { img: "assets/inspiration/eyrove-rv-jimeng-77fa196c3b66b3213063af6d6f0e.webp", cap: "绘本插画 · 向日葵少年（EYROVE）", tag: "插画 / 绘本" },
     { img: "assets/inspiration/eyrove-runninghub-2094304624574488577.webp", cap: "海报 · 电影感人像（EYROVE）", tag: "海报 / 人像" },
-    { img: "assets/inspiration/eyrove-runninghub-2094302485336842242.webp", cap: "海报 · 电影感人像（EYROVE 素材）（EYROVE）", tag: "海报 / 人像" },
+    { img: "assets/inspiration/eyrove-runninghub-2094302485336842242.webp", cap: "海报 · 电影感人像（EYROVE）", tag: "海报 / 人像" },
   ],
 
   /* ---------- 7. 服务能力 ---------- */
