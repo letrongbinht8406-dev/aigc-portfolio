@@ -221,6 +221,28 @@ window.PORTFOLIO = {
     }
   ],
 
+  /* ---------- 5.5 深度案例（二级详情页） ---------- */
+  caseStudies: [
+    {
+      num: "01",
+      kicker: "E-COMMERCE DETAIL PAGE",
+      title: "LUMIA 光研 · 详情页全案",
+      desc: "虚构护肤品牌 7 屏竖版详情长图，配 Design Show 标题页、手机 mockup、规格书、设计判断、三段式配方与迭代对照。",
+      cover: "assets/lumia/m2/m2_s0.jpg",
+      href: "case-lumia.html",
+      tags: ["详情页全案", "手机 mockup", "可复现配方"]
+    },
+    {
+      num: "02",
+      kicker: "AI VIDEO & MODEL SELECTION",
+      title: "AI 视频 · 变形修复与模型选型",
+      desc: "雨夜跑车 TVC 从背景崩、手崩到可用成片的三版迭代，另附 5 条多模型视频成片：宠物广告 / 竖版微缩 / 2D 动画 / 电影感对峙 / 水墨剪影。",
+      cover: "assets/video/car_tvc_sof_poster.jpg",
+      href: "case-video.html",
+      tags: ["视频成片", "迭代对照", "6 模型"]
+    }
+  ],
+
   /* ---------- 6. 作品片段 ---------- */
   snippets: [
     { img: "assets/img/snip-cold.jpg",     cap: "冷冽蓝调 · 科技 / 克苏鲁" },

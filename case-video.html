@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 视频作品集 · 变形修复与模型选型 ｜ 葛雪峰 AIGC 作品集</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.v-hero{padding:130px 0 70px;background:radial-gradient(900px 480px at 15% 10%,rgba(47,191,160,.14),transparent 60%),radial-gradient(800px 400px at 80% 30%,rgba(164,91,218,.14),transparent 60%),#08090d;border-bottom:1px solid var(--line)}
+.v-back{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;text-decoration:none;margin-bottom:34px}
+.v-back:hover{color:var(--text)}
+.v-kick{font-size:12px;letter-spacing:.28em;color:var(--accent-3);text-transform:uppercase;margin-bottom:18px}
+.v-hero h1{font-size:clamp(34px,5vw,60px);line-height:1.12;margin:0 0 20px;font-weight:800}
+.v-hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent-3),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.v-sub{font-size:16px;color:var(--muted);max-width:780px;line-height:1.8;margin:0 0 36px}
+.v-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px}
+.v-meta div{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.v-meta b{display:block;font-size:11px;letter-spacing:.18em;color:var(--accent-3);margin-bottom:9px}
+.v-meta span{font-size:14px;color:#c9cfde;line-height:1.6}
+.v-sec{padding:74px 0}
+.v-sec.alt{background:#0b0d13;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.v-h{font-size:11.5px;letter-spacing:.24em;color:var(--accent-3);margin-bottom:14px}
+.v-sec h2{font-size:clamp(22px,3vw,34px);margin:0 0 14px}
+.v-lead{color:var(--muted);font-size:14.5px;line-height:1.85;max-width:880px;margin:0 0 34px}
+.cmp3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cmp3 figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.cmp3 img{width:100%;display:block;aspect-ratio:16/8;object-fit:cover}
+.cmp3 figcaption{padding:14px 16px;font-size:13px;color:#c2c8d8;line-height:1.6}
+.cmp3 figcaption b{display:block;color:var(--accent-3);font-size:11.5px;letter-spacing:.1em;margin-bottom:6px}
+.fix-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:24px}
+.fix-table th,.fix-table td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;line-height:1.6}
+.fix-table th{color:var(--accent-3);font-weight:500;white-space:nowrap}
+.fix-table td{color:#b9c0d0}
+.player{max-width:900px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#05060a}
+.player video{display:block;width:100%;max-height:520px;background:#000}
+.player .cap{padding:14px 18px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.vcard video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.vcard div{padding:14px 16px}
+.vcard b{display:block;font-size:14px;color:#e2e6ef;margin-bottom:6px}
+.vcard span{font-size:12px;color:var(--muted);line-height:1.6}
+.vcard .model{display:inline-block;font-size:10.5px;letter-spacing:.1em;color:var(--accent-3);border:1px solid rgba(47,191,160,.3);border-radius:6px;padding:3px 8px;margin-bottom:9px}
+.q{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.q div{padding:24px 18px;text-align:center;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.q b{display:block;font-size:30px;color:var(--accent-3);margin-bottom:6px}
+.q span{font-size:12.5px;color:var(--muted)}
+.tagline{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:11.5px;letter-spacing:.14em;color:var(--muted)}
+@media(max-width:980px){.cmp3,.vgrid,.q{grid-template-columns:repeat(2,1fr)}.v-meta{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.cmp3,.vgrid,.q,.v-meta{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section class="v-hero">
+  <div class="container">
+    <a class="v-back" href="index.html#works">← 返回作品集</a>
+    <div class="v-kick">CASE STUDY 02 / AI VIDEO &amp; MODEL SELECTION</div>
+    <h1>AI 视频作品集<br><em>变形修复与模型选型</em></h1>
+    <p class="v-sub">同一个雨夜跑车镜头跑了三版，从「背景崩」到「手崩」再到可用成片——这不是抽卡记录，而是发现问题、换模型、改控制的判断链。另附 5 条不同模型的视频成片，展示工具广度与场景适配能力。</p>
+    <div class="v-meta">
+      <div><b>主线 / THREAD</b><span>蓝色跑车 SOF 涂装雨夜 TVC，10 秒循环镜头</span></div>
+      <div><b>模型 / MODELS</b><span>即梦 / MiniMax H3 / H3_Ref2VA / AnimateDiff / 豆包 / H3Seg</span></div>
+      <div><b>日期 / DATE</b><span>2026-08 至 2026-11 ｜ 个人练习与工作流验证</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="v-sec">
+  <div class="container">
+    <div class="v-h">01 / ITERATION</div>
+    <h2>三版对照：从崩坏到可用</h2>
+    <p class="v-lead">三版都是同一句提示词起点：雨夜霓虹街道，蓝色跑车（SOF 涂装）低角度掠过，镜头跟随。差异来自控制手段，而不是运气。</p>
+    <div class="cmp3">
+      <figure><img src="assets/video/car_v1_bgbreak_poster.jpg" alt=""><figcaption><b>V1 · 背景崩</b>车身稳定但街景建筑被拉扯变形，霓虹招牌扭曲成色块。问题：运动幅度过大 + 无结构约束。</figcaption></figure>
+      <figure><img src="assets/video/car_v2_handbreak_poster.jpg" alt=""><figcaption><b>V2 · 手崩</b>背景改善，但车体局部（轮毂、前脸）开始畸变。问题：换模型后细节保持力不足。</figcaption></figure>
+      <figure><img src="assets/video/car_tvc_sof_poster.jpg" alt=""><figcaption><b>V3 · 凑合可用</b>车身结构稳定、街景可信，SOF 涂装清晰。方案：降运动幅度 + ControlNet 锁结构 + 局部重绘。</figcaption></figure>
+    </div>
+    <table class="fix-table">
+      <tr><th>版本</th><th>模型 / 参数</th><th>失败点</th><th>修复动作</th></tr>
+      <tr><td>V1</td><td>即梦 · 默认运动强度</td><td>街景建筑与招牌被拉扯</td><td>降低运动幅度，缩短单段时长</td></tr>
+      <tr><td>V2</td><td>换模型 · 高细节档</td><td>轮毂与前脸细节畸变</td><td>ControlNet 锁车体结构，限制形变区域</td></tr>
+      <tr><td>V3</td><td>结构锁定 + 局部重绘</td><td>轻微拖影（可接受）</td><td>成片；保留前两版作为迭代证据</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="v-sec alt">
+  <div class="container">
+    <div class="v-h">02 / FINAL CUT</div>
+    <h2>成片 · 雨夜跑车 TVC</h2>
+    <div class="player">
+      <video src="assets/video/car_tvc_sof.mp4" poster="assets/video/car_tvc_sof_poster.jpg" controls preload="metadata">您的浏览器不支持 video 标签。</video>
+      <div class="cap"><span>10s ｜ 1920×1120 源 → 1100px 转码 ｜ H.264 + faststart</span><span>按钮可播放 / 暂停</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="v-sec">
+  <div class="container">
+    <div class="v-h">03 / MODEL SELECTION</div>
+    <h2>多模型视频作品集</h2>
+    <p class="v-lead">不同模型有不同强项：广告质感找 AnimateDiff，竖版社媒找 H3，人物表演找 Ref2VA，2D 风格找 jimeng / 豆包，氛围剪影找 1-1。下面是各取一条的实测成片。</p>
+    <div class="vgrid">
+      <div class="vcard"><video src="assets/video/pet_food_ad.mp4" poster="assets/video/pet_food_ad_poster.jpg" controls preload="metadata"></video><div><span class="model">ANIMATEDIFF</span><b>宠物食品广告「全肉质感。硬核喂养。」</b><span>15s · 2080×1152 · 商品广告质感，适合电商信息流。</span></div></div>
+      <div class="vcard"><video src="assets/video/orange_macro.mp4" poster="assets/video/orange_macro_poster.jpg" controls preload="metadata"></video><div><span class="model">MINIMAX H3 · T2V</span><b>橙子微缩景观</b><span>15s · 672×1216 竖版 · 微缩摄影质感，天然适配社媒 9:16。</span></div></div>
+      <div class="vcard"><video src="assets/video/anime2d_phone.mp4" poster="assets/video/anime2d_phone_poster.jpg" controls preload="metadata"></video><div><span class="model">JIMENG · 2D</span><b>2D 动画 · 看手机的女孩与窗外龙</b><span>10s · 1280×720 · 二次元叙事，60fps 流畅。</span></div></div>
+      <div class="vcard"><video src="assets/video/film_duo.mp4" poster="assets/video/film_duo_poster.jpg" controls preload="metadata"></video><div><span class="model">H3 · REF2VA</span><b>电影感双人对峙</b><span>8s · 1376×768 · 参考图驱动的人物表演，影视片段质感。</span></div></div>
+      <div class="vcard"><video src="assets/video/ink_silhouette.mp4" poster="assets/video/ink_silhouette_poster.jpg" controls preload="metadata"></video><div><span class="model">T2V · 竖版</span><b>水墨人物剪影</b><span>9s · 832×1504 · 东方美学氛围，适合竖版封面与社媒。</span></div></div>
+      <div class="vcard"><img src="assets/video/car_tvc_sof_poster.jpg" alt="" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"><div><span class="model">MELIES 知识库</span><b>电影技法 424 项 / 48 桥段</b><span>分镜与运镜的底层知识库，支撑「导演思维」而非抽卡玄学。</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="v-sec alt">
+  <div class="container">
+    <div class="v-h">04 / QUANTIFIED</div>
+    <h2>量化指标</h2>
+    <div class="q">
+      <div><b>54 条</b><span>本地视频工作流产物</span></div>
+      <div><b>6 条</b><span>精选上线成片</span></div>
+      <div><b>3 版</b><span>跑车迭代对照</span></div>
+      <div><b>12.7 MB</b><span>视频资产总增量</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="v-sec">
+  <div class="container">
+    <a class="v-back" href="index.html#works">← 返回作品集</a>
+    <span class="tagline">CASE 01 · LUMIA 详情页全案 ｜ CASE 03 · 国风 / 公益海报组（规划中）</span>
+  </div>
+</section>
+</body>
+</html>

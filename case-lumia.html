@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUMIA 光研 · 详情页全案 ｜ 葛雪峰 AIGC 作品集</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+:root{--lumia-b:#0b1020;--lumia-gold:#c9a063;--lumia-blue:#7fa8d9;--lumia-mint:#9fc6a8}
+.case-hero{padding:130px 0 70px;background:radial-gradient(1000px 500px at 20% 10%,rgba(91,124,250,.18),transparent 60%),radial-gradient(800px 400px at 80% 40%,rgba(201,160,99,.12),transparent 60%),#08090d;border-bottom:1px solid var(--line)}
+.case-back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;text-decoration:none;margin-bottom:34px;transition:color .2s}
+.case-back:hover{color:var(--text)}
+.case-kicker{font-size:12px;letter-spacing:.28em;color:var(--lumia-gold);text-transform:uppercase;margin-bottom:18px}
+.case-hero h1{font-size:clamp(34px,5vw,62px);line-height:1.12;margin:0 0 20px;font-weight:800;letter-spacing:-.02em}
+.case-hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--lumia-blue),var(--lumia-gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.case-sub{font-size:16px;color:var(--muted);max-width:760px;line-height:1.8;margin:0 0 36px}
+.case-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px}
+.case-meta div{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.case-meta b{display:block;font-size:11px;letter-spacing:.18em;color:var(--lumia-gold);margin-bottom:9px}
+.case-meta span{font-size:14px;color:#c9cfde;line-height:1.6}
+.case-sec{padding:74px 0}
+.case-sec.alt{background:#0b0d13;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-h{font-size:11.5px;letter-spacing:.24em;color:var(--accent-3);margin-bottom:14px}
+.case-sec h2{font-size:clamp(22px,3vw,34px);margin:0 0 14px}
+.case-lead{color:var(--muted);font-size:14.5px;line-height:1.85;max-width:860px;margin:0 0 34px}
+.mockup-wrap{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap}
+.phone{width:390px;flex:none;background:#05060a;border:9px solid #23283a;border-radius:42px;padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.6),inset 0 0 0 2px #0d1018;position:relative}
+.phone:before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:90px;height:20px;background:#05060a;border-radius:0 0 14px 14px;z-index:2}
+.phone-screen{height:620px;overflow-y:auto;border-radius:30px;background:#fff;scrollbar-width:thin}
+.phone-screen img{display:block;width:100%}
+.mockup-note{flex:1;min-width:280px}
+.mockup-note h3{font-size:20px;margin:0 0 16px}
+.mockup-note ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.mockup-note li{padding:14px 16px;border-left:2px solid var(--lumia-gold);background:rgba(255,255,255,.025);border-radius:0 10px 10px 0;font-size:13.5px;color:#c2c8d8;line-height:1.65}
+.mockup-note li b{color:var(--lumia-gold);display:block;margin-bottom:4px;font-size:11.5px;letter-spacing:.12em}
+.mod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mod{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.mod img{width:100%;height:132px;object-fit:cover;display:block;background:#fff}
+.mod div{padding:13px 14px}
+.mod b{display:block;color:var(--lumia-gold);font-size:11px;letter-spacing:.1em;margin-bottom:6px}
+.mod span{font-size:13px;color:#c2c8d8;line-height:1.6}
+.spec-table{width:100%;border-collapse:collapse;font-size:14px}
+.spec-table th,.spec-table td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:left}
+.spec-table th{width:180px;color:var(--lumia-gold);font-weight:500;letter-spacing:.06em}
+.spec-table td{color:#c2c8d8}
+.judge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.judge{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.judge b{display:block;color:var(--accent-3);font-size:12px;letter-spacing:.1em;margin-bottom:10px}
+.judge p{margin:0;font-size:13.5px;color:#b9c0d0;line-height:1.75}
+.recipe{background:#0a0c12;border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:14px}
+.recipe h3{margin:0 0 12px;font-size:14px;color:var(--lumia-blue);letter-spacing:.08em}
+.recipe pre{margin:0;white-space:pre-wrap;word-break:break-all;font-size:12.5px;line-height:1.85;color:#b9c0d0;font-family:ui-monospace,Consolas,monospace}
+.quant{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.quant div{padding:24px 18px;text-align:center;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.quant b{display:block;font-size:32px;color:var(--lumia-gold);margin-bottom:6px}
+.quant span{font-size:12.5px;color:var(--muted)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cmp figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.cmp img{width:100%;display:block}
+.cmp figcaption{padding:12px 16px;font-size:13px;color:#c2c8d8}
+.cmp figcaption b{color:var(--accent-3);margin-right:8px}
+.tagline{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:11.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:18px}
+@media(max-width:980px){.case-meta,.judge-grid,.quant{grid-template-columns:repeat(2,1fr)}.mod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.case-meta,.judge-grid,.quant,.mod-grid,.cmp{grid-template-columns:1fr}.phone{width:100%}}
+</style>
+</head>
+<body>
+<section class="case-hero">
+  <div class="container">
+    <a class="case-back" href="index.html#works">← 返回作品集</a>
+    <div class="case-kicker">CASE STUDY 01 / E-COMMERCE DETAIL PAGE</div>
+    <h1>LUMIA 光研<br><em>详情页全案</em></h1>
+    <p class="case-sub">虚构护肤品牌 LUMIA 光研的电商详情页全案：从品牌 KV、卖点拆解、成分工艺、功效数据到规格参数，用一条冷调光感主线贯穿 7 屏长图；以 Design Show 标题页 + 手机 mockup 的专业方式呈现。</p>
+    <div class="case-meta">
+      <div><b>品类 / CATEGORY</b><span>护肤精华 · 玻尿酸高保湿精华水 150ml</span></div>
+      <div><b>日期 / DATE</b><span>2026-10 ｜ 虚构品牌练习 · 无竞业风险</span></div>
+      <div><b>设计思路 / CONCEPT</b><span>科技 · 光感 · 实验室 · 极简；冷调 + 玻璃金属质感，靠色块与留白切节奏</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec">
+  <div class="container">
+    <div class="case-h">01 / DESIGN SHOW</div>
+    <h2>全案展示 · 手机 mockup</h2>
+    <p class="case-lead">参考电商详情页全案的呈现方式：不摊开一张长图，而是把 7 屏长图装进手机 mockup，右侧标注每屏的设计意图。长图可在手机框内滚动查看。</p>
+    <div class="mockup-wrap">
+      <div class="phone"><div class="phone-screen"><img src="assets/lumia/m2/lumia_m2_detail_v5.jpg" alt="LUMIA 详情页长图"></div></div>
+      <div class="mockup-note">
+        <h3>这条长图在讲什么</h3>
+        <ul>
+          <li><b>第 1 屏 · 品牌头图 KV</b>LUMIA 光研 / 玻尿酸高保湿精华水，水珠与涟漪定调，桃金暖调替代冷调——同一品牌下的第二视觉体系。</li>
+          <li><b>第 2 屏 · 核心卖点</b>「多维玻尿酸 · 立体储水 · 长效锁润」三行卖点，大字 + 小注释双层字阶。</li>
+          <li><b>第 3–4 屏 · 成分与功效</b>成分拆解 + 24h 持续水润 / 即时保湿大数字，实拍产品与文案分栏。</li>
+          <li><b>第 5 屏 · 使用场景</b>编号步骤 + 场景图，把「怎么用」讲清。</li>
+          <li><b>第 6 屏 · 规格参数</b>150ml / 磨砂玻璃瓶 / 香槟金盖，参数表 + 线稿尺寸。</li>
+          <li><b>第 7 屏 · 品牌收尾</b>Thanks + Logo，形成完整全案闭环。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec alt">
+  <div class="container">
+    <div class="case-h">02 / 8 MODULES</div>
+    <h2>一条主线，七个模块</h2>
+    <p class="case-lead">模块顺序不是随手排的：先立品牌，再讲卖点，再给成分与功效证据，最后落到场景与规格——这是我从电商详情页案例里抽出的通用骨架。</p>
+    <div class="mod-grid">
+      <div class="mod"><img src="assets/lumia/m2/m2_s0.jpg" alt=""><div><b>01 品牌 KV</b><span>水珠 + 涟漪 + 产品主视觉</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s1.jpg" alt=""><div><b>02 核心卖点</b><span>大字主张 + 线性图标行</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s2.jpg" alt=""><div><b>03 成分工艺</b><span>拆解图 + 标注</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s3.jpg" alt=""><div><b>04 功效数据</b><span>24h / 即时保湿大数字</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s4.jpg" alt=""><div><b>05 使用场景</b><span>编号步骤 + 场景图</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s5.jpg" alt=""><div><b>06 规格参数</b><span>参数表 + 线稿尺寸</span></div></div>
+      <div class="mod"><img src="assets/lumia/m2/m2_s6.jpg" alt=""><div><b>07 品牌收尾</b><span>Thanks + Logo</span></div></div>
+      <div class="mod"><img src="assets/lumia/lumia_m1_data_poster_16x9.jpg" alt=""><div><b>08 功效海报延展</b><span>98.4% / 96.2% / 72h 横版</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec">
+  <div class="container">
+    <div class="case-h">03 / SPEC SHEET</div>
+    <h2>设计规格书</h2>
+    <table class="spec-table">
+      <tr><th>产品口径</th><td>LUMIA 光研 · 玻尿酸高保湿精华水 / 150ml / 磨砂玻璃瓶 / 香槟金盖</td></tr>
+      <tr><th>交付物</th><td>7 屏竖版详情长图（790×5466）+ 首屏 KV（790×1404）+ 8 模块切图 + 横版功效数据海报（2816×1584）</td></tr>
+      <tr><th>主色系</th><td>桃金暖调 #FBEDE7 / #F6DCCB / #C9A063，辅色薄荷 #9FC6A8，墨色 #3A2A1E</td></tr>
+      <tr><th>字阶</th><td>大标题（主主张）+ 小注释（13px / letter-spacing 5px 金色眉标），双层结构</td></tr>
+      <tr><th>图像生成</th><td>arena.ai SeeDream-5.0-Pro，1:1 产品图 / 16:9 海报 / 竖版长图分屏生成</td></tr>
+      <tr><th>排版实现</th><td>HTML + CSS 精确排版（hero_v4.html / detail_v5.html），色彩变量化、模块可复用</td></tr>
+      <tr><th>一致性控制</th><td>三段式锁：SPEC + 固定约束 + 排除项清单，跨镜复用，不依赖 seed 硬碰</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="case-sec alt">
+  <div class="container">
+    <div class="case-h">04 / DESIGN JUDGEMENT</div>
+    <h2>设计判断，不是抽卡</h2>
+    <div class="judge-grid">
+      <div class="judge"><b>为什么换暖调</b><p>M1 玻璃瓶精华用冷调蓝紫体现「光研科技」；M2 精华水改用桃金暖调，因为品类从「功效精华」转向「保湿日常」，暖调更贴近使用场景。同一品牌下允许两套视觉体系，但各自必须单主色贯穿。</p></div>
+      <div class="judge"><b>为什么用 HTML 排版</b><p>直接让模型出整张长图，中文与数字容易糊、裁切。改为「单屏出图 + HTML/CSS 精确排版」：图像负责质感，代码负责字阶与网格，中文准确率与数字完整度都可验收。</p></div>
+      <div class="judge"><b>为什么留迭代版本</b><p>v2/v3 的旧稿没有丢弃，而是作为「迭代对照」保留。面试时能讲清每一版改了什么、为什么改，比只展示最终稿更能证明设计判断力。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec">
+  <div class="container">
+    <div class="case-h">05 / REPRODUCIBLE RECIPE</div>
+    <h2>可复现配方</h2>
+    <p class="case-lead">这套提示词结构来自「SPEC + 约束清单 + 排除项」的一致性锁定方法：先把可见特征写具体，再把跨镜不变的条件固定，最后用排除项强制单一主体。</p>
+    <div class="recipe"><h3>① SPEC（主体描述 · 具体到可见特征）</h3><pre>磨砂玻璃瓶身 150ml，香槟金旋盖，瓶身正面印「LUMIA 光研 / Hyaluronic Acid」烫金字样；瓶内淡金透明精华液面位于瓶身 1/3 处；瓶底投下柔和椭圆阴影。主体位于画面正中，占画面高度 62%，基线对齐下三分之一线。</pre></div>
+    <div class="recipe"><h3>② 固定约束（每图复用）</h3><pre>统一影棚底色 #FBEDE7 到 #F6DCCB 的柔和渐变；同一光位：左上 45° 主光 + 右侧微弱补光；同一基线、同一占比；装饰元素限定为水珠与涟漪，位置固定在主体右下与左上；画面无人物、无手部。</pre></div>
+    <div class="recipe"><h3>③ 排除项清单（写进负向）</h3><pre>只有一个主体瓶，无第二瓶、无重复瓶盖、无多余瓶身；无文字水印、无乱码字符、无变形logo；无多余手指、无人体部位；无杂乱背景、无强反光过曝；不要宽幅横构图（长图用竖版单屏）。</pre></div>
+  </div>
+</section>
+
+<section class="case-sec alt">
+  <div class="container">
+    <div class="case-h">06 / QUANTIFIED</div>
+    <h2>量化指标</h2>
+    <div class="quant">
+      <div><b>7 屏</b><span>竖版详情长图</span></div>
+      <div><b>8 模块</b><span>全案覆盖</span></div>
+      <div><b>100%</b><span>中文与数字准确</span></div>
+      <div><b>2 套</b><span>视觉体系并行</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec">
+  <div class="container">
+    <div class="case-h">07 / ITERATION</div>
+    <h2>迭代对照 · v3 旧稿 vs v5 定稿</h2>
+    <p class="case-lead">左：早期 v3 版本，信息密度低、主色不统一；右：v5 定稿，模块完整、字阶清晰、单主色贯穿。改动记录见排版源码 detail_v3.html 与 detail_v5.html。</p>
+    <div class="cmp">
+      <figure><img src="assets/lumia/m2/_old_v1/lumia_m2_detail_v3.jpg" alt=""><figcaption><b>BEFORE · v3</b>模块少、主色杂、字阶弱</figcaption></figure>
+      <figure><img src="assets/lumia/m2/lumia_m2_detail_v5.jpg" alt=""><figcaption><b>AFTER · v5</b>7 屏全案、桃金单主色、双层字阶</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec alt">
+  <div class="container">
+    <a class="case-back" href="index.html#works">← 返回作品集</a>
+    <span class="tagline">NEXT CASE · 跑车雨夜 TVC 变形修复</span>
+  </div>
+</section>
+</body>
+</html>

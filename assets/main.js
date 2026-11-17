@@ -137,6 +137,25 @@
     }).join(""));
   }
 
+  /* ---------- 5.5 深度案例入口 ---------- */
+  function renderCases() {
+    var items = D.caseStudies || [];
+    var grid = el("#caseGrid");
+    if (!grid) return;
+    setHTML("#caseGrid", items.map(function (c) {
+      var tags = (c.tags || []).map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("");
+      return '<a class="case-card reveal" href="' + esc(c.href) + '">' +
+        '<div class="case-card-media"><img src="' + esc(c.cover) + '" alt="' + esc(c.title) + '" loading="lazy"><span class="badge">' + esc(c.num) + ' / CASE</span></div>' +
+        '<div class="case-card-body">' +
+          '<div class="case-kicker">' + esc(c.kicker) + '</div>' +
+          '<h3>' + esc(c.title) + '</h3>' +
+          '<p>' + esc(c.desc) + '</p>' +
+          '<div class="work-tags">' + tags + '</div>' +
+          '<span class="case-go">查看完整案例 →</span>' +
+        "</div></a>";
+    }).join(""));
+  }
+
   /* ---------- 6. 作品片段 ---------- */
   function renderSnippets() {
     setHTML("#snipGrid", (D.snippets || []).map(function (s) {
@@ -376,6 +395,7 @@
     renderFocus();
     renderTools();
     renderWorks();
+    renderCases();
     renderSnippets();
     renderServices();
     renderContact();

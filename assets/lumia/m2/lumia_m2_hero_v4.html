@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><style>
+:root{--peach1:#FBEDE7;--peach2:#F6DCCB;--gold:#C9A063;--gold-d:#A87E42;--cocoa:#4A3527;--ink:#3A2A1E;--mint:#9FC6A8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:790px;min-height:1404px;background:radial-gradient(120% 80% at 50% 0%,#fff7f0 0%,var(--peach1) 46%,var(--peach2) 100%);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{width:790px;height:1404px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 0;position:relative}
+.brand{font-size:25px;letter-spacing:15px;font-weight:300;color:var(--ink);z-index:5}
+.brand b{font-weight:800}
+.pname{font-size:62px;font-weight:800;letter-spacing:6px;color:var(--cocoa);line-height:1.1;margin-top:22px;z-index:5}
+.pen{font-size:15px;letter-spacing:5px;color:var(--gold-d);margin-top:20px;text-transform:uppercase;font-weight:600;z-index:5}
+.tag{font-size:16px;color:#8a6a54;letter-spacing:2px;margin-top:18px;z-index:5}
+.bwrap{margin:36px auto 0;width:520px;position:relative;z-index:4}
+.bwrap img{width:520px;display:block;border-radius:26px;filter:saturate(.94) drop-shadow(0 20px 26px rgba(120,80,50,.18))}
+.bwrap::before{content:"";position:absolute;inset:0;border-radius:26px;z-index:2;pointer-events:none;
+  background:radial-gradient(110% 85% at 50% 55%,transparent 40%,rgba(251,237,231,.6) 74%,var(--peach1) 100%)}
+.dcap{margin-top:40px;display:inline-flex;align-items:center;gap:16px;border-radius:44px;padding:15px 34px;
+  background:linear-gradient(135deg,#D9B879 0%,var(--gold) 55%,#B98A4E 100%);box-shadow:0 10px 22px rgba(168,126,66,.34);z-index:5}
+.dcap .n{font-size:34px;font-weight:800;color:#fff}
+.dcap .t{font-size:17px;color:#fff;letter-spacing:2px;font-weight:600}
+.drop{position:absolute;border-radius:50%;z-index:3;pointer-events:none;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95),rgba(200,225,215,.55) 45%,rgba(159,198,168,.15) 70%,transparent 78%);
+  box-shadow:0 3px 8px rgba(120,90,60,.12)}
+.d1{width:64px;height:64px;left:118px;top:812px}
+.d2{width:38px;height:38px;right:150px;top:770px}
+.d3{width:26px;height:26px;left:180px;top:980px}
+.d4{width:48px;height:48px;right:120px;top:1000px}
+.ripple{position:absolute;border-radius:50%;border:1.5px solid rgba(159,198,168,.5);z-index:2;pointer-events:none}
+.r1{width:120px;height:120px;left:96px;top:790px}
+.r2{width:90px;height:90px;right:104px;top:980px}
+</style></head><body><div class="wrap">
+  <span class="drop d1"></span><span class="drop d2"></span><span class="drop d3"></span><span class="drop d4"></span>
+  <span class="ripple r1"></span><span class="ripple r2"></span>
+  <div class="brand">LUMIA <b>光研</b></div>
+  <div class="pname">玻尿酸高保湿<br>精华水</div>
+  <div class="pen">Hyaluronic Acid · Deep Moisture</div>
+  <div class="tag">多维玻尿酸 · 立体储水 · 长效锁润</div>
+  <div class="bwrap"><img src="bottle_wide.jpg"></div>
+  <div class="dcap"><span class="n">24h</span><span class="t">持续水润 · 即时保湿</span></div>
+</div></body></html>

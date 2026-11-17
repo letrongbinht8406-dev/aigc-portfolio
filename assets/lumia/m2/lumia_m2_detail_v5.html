@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=790">
+<style>
+:root{
+  --peach1:#FBEDE7; --peach2:#F6DCCB; --peach3:#F1CBB2;
+  --gold:#C9A063; --gold-d:#A87E42; --gold-deep:#B0894E;
+  --cocoa:#4A3527; --ink:#3A2A1E; --mint:#9FC6A8; --mint-d:#6E9E7C;
+  --card:#FFF6F0; --line:rgba(201,160,99,.42); --line2:#E0D0BE;
+  --sh:0 12px 30px rgba(120,80,50,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:790px;background:var(--peach1);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;-webkit-font-smoothing:antialiased}
+.page{width:790px}
+.sec{width:790px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--peach1) 0%,var(--peach2) 100%)}
+/* 水光纹理：角部柔光 + 薄荷涟漪 */
+.sec::before{content:"";position:absolute;top:-140px;right:-140px;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.6),transparent 70%);opacity:.7;pointer-events:none}
+.sec::after{content:"";position:absolute;bottom:-120px;left:-120px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(159,198,168,.22),transparent 70%);pointer-events:none}
+.pad{padding:0 64px;position:relative;z-index:2}
+.eyebrow{font-size:13px;letter-spacing:5px;color:var(--gold-d);text-transform:uppercase;font-weight:600}
+.center{text-align:center}
+.divider{width:120px;height:2px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative;z-index:2}
+
+/* 装饰水珠 */
+.drop{position:absolute;border-radius:50%;z-index:3;pointer-events:none;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.98),rgba(190,220,208,.65) 42%,rgba(140,190,155,.28) 68%,transparent 82%);
+  box-shadow:0 3px 10px rgba(110,158,124,.30)}
+.drop::after{content:"";position:absolute;left:22%;top:16%;width:26%;height:22%;border-radius:50%;
+  background:rgba(255,255,255,.85);filter:blur(.5px)}
+.ripple{position:absolute;border-radius:50%;border:1.5px solid rgba(140,190,155,.45);z-index:1;pointer-events:none}
+
+/* S0 首屏 */
+.s0{min-height:920px;display:flex;flex-direction:column;align-items:center;padding:92px 0 66px;position:relative;
+  background:radial-gradient(120% 80% at 50% 0%,#fff7f0 0%,var(--peach1) 46%,var(--peach2) 100%)}
+.s0 .brand{font-size:25px;letter-spacing:15px;font-weight:300;color:var(--ink);margin-bottom:14px;z-index:5}
+.s0 .brand b{font-weight:800}
+.s0 .pname{font-size:58px;font-weight:800;letter-spacing:7px;color:var(--cocoa);line-height:1.12;z-index:5}
+.s0 .pen{font-size:15px;letter-spacing:5px;color:var(--gold-d);margin-top:20px;text-transform:uppercase;font-weight:500;z-index:5}
+.s0 .tag{font-size:15.5px;color:#8a6a54;letter-spacing:2px;margin-top:20px;z-index:5}
+.s0 .bwrap{margin:40px auto 0;width:560px;position:relative;z-index:4}
+.s0 .bwrap img.bottle{width:560px;display:block;border-radius:26px;filter:saturate(.94) drop-shadow(0 22px 26px rgba(120,80,50,.2))}
+.s0 .bwrap::before{content:"";position:absolute;inset:0;border-radius:26px;z-index:2;pointer-events:none;
+  background:radial-gradient(110% 85% at 50% 55%,transparent 42%,rgba(251,237,231,.6) 76%,var(--peach1) 100%)}
+.s0 .bwrap::after{content:"";position:absolute;left:14%;right:14%;bottom:-16px;height:26px;
+  background:radial-gradient(50% 100% at 50% 0%,rgba(168,126,66,.34),transparent 70%)}
+.s0 .dcap{margin-top:40px;display:inline-flex;align-items:center;gap:16px;border-radius:44px;padding:13px 30px;
+  background:linear-gradient(135deg,#E3CC94 0%,#D3AE74 55%,#C0975A 100%);box-shadow:0 10px 22px rgba(168,126,66,.26);z-index:5}
+.s0 .dcap .n{font-size:32px;font-weight:800;color:#fff}
+.s0 .dcap .t{font-size:17px;color:#fff;letter-spacing:2px;font-weight:600}
+
+/* 小节头 */
+.chead{display:flex;align-items:center;gap:14px}
+.chead .dot{width:9px;height:9px;border-radius:50%;background:var(--mint-d);box-shadow:0 0 0 4px rgba(110,158,124,.18)}
+.chead .t{font-size:30px;font-weight:800;color:var(--cocoa);letter-spacing:3px}
+.sub{font-size:16px;color:#8a6a54;letter-spacing:1px;margin-top:12px;line-height:1.8}
+
+/* S1 痛点：图标 + 失水条 */
+.s1{min-height:700px;padding:66px 0 60px}
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.qcell{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;text-align:center;box-shadow:var(--sh);position:relative}
+.qcell .ic{width:54px;height:54px;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--peach2) 70%);
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.qcell .ic svg{width:26px;height:26px;stroke:var(--gold-d);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.qcell .big{font-size:44px;font-weight:800;color:var(--cocoa);letter-spacing:2px;line-height:1}
+.qcell .lab{font-size:15px;color:#8a6a54;margin-top:10px;letter-spacing:1px}
+.qcell .en{font-size:11px;color:var(--gold-d);letter-spacing:3px;margin-top:7px;text-transform:uppercase}
+.lossbar{margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 28px;box-shadow:var(--sh)}
+.lossbar .tt{font-size:15px;color:var(--cocoa);font-weight:800;letter-spacing:1px}
+.lossbar .tt small{color:#9a7d68;font-weight:500;font-size:12px;margin-left:8px}
+.lossrow{display:flex;align-items:center;gap:12px;margin-top:14px}
+.lossrow .kk{width:84px;font-size:13px;color:#8a6a54;flex:none}
+.lossrow .track{flex:1;height:10px;border-radius:6px;background:#F3E4D6;overflow:hidden}
+.lossrow .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold),#8a5f2a)}
+
+/* S2 皮肤三层分层图 */
+.s2{min-height:800px;padding:66px 0 60px}
+.two{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start;margin-top:38px}
+.skinfig{width:300px;height:330px;border-radius:24px;overflow:hidden;position:relative;
+  background:linear-gradient(180deg,#FDF1E9,#F6DCCB);border:1px solid var(--line);box-shadow:var(--sh);display:flex;flex-direction:column}
+.sklayer{flex:1;position:relative;display:flex;align-items:center;padding:0 16px;gap:12px}
+.sklayer+.sklayer{border-top:1.5px dashed rgba(201,160,99,.5)}
+.skl1{background:rgba(255,255,255,.55)}
+.skl2{background:rgba(246,220,203,.5)}
+.skl3{background:rgba(232,196,172,.55)}
+.sklabel{width:50px;font-size:13px;color:var(--gold-d);font-weight:800;letter-spacing:1px;flex:none}
+.skmol{border-radius:50%;flex:none;box-shadow:0 4px 10px rgba(168,126,66,.28)}
+.skm1{width:42px;height:42px;background:radial-gradient(circle at 38% 34%,#fff,#E7C79E 60%,#C99A55)}
+.skm2{width:34px;height:34px;background:radial-gradient(circle at 38% 34%,#fff,#EFD8BE 60%,#D9B48C)}
+.skm3{width:28px;height:28px;background:radial-gradient(circle at 38% 34%,#fff,#CFE6D6 60%,var(--mint-d))}
+.sknote{font-size:12px;color:#6d5140;line-height:1.5;flex:1}
+.ingtxt h3{font-size:29px;font-weight:800;color:var(--cocoa);letter-spacing:2px}
+.ingtxt p{font-size:15.5px;color:#6d5140;line-height:1.95;margin-top:16px}
+.kws{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.kws span{font-size:13px;color:var(--cocoa);border:1px solid var(--line);border-radius:20px;padding:8px 18px;background:rgba(255,255,255,.6)}
+
+/* S3 协同：图标光晕 + 环背景 */
+.s3{min-height:720px;padding:64px 0 58px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:40px}
+.c3{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 14px 26px;text-align:center;box-shadow:var(--sh);min-height:250px;position:relative;overflow:hidden}
+.c3::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,160,99,.18),transparent 70%)}
+.c3 .ic{width:78px;height:78px;border-radius:50%;margin:0 auto;position:relative;
+  background:radial-gradient(circle at 35% 30%,#F3E3C8,var(--gold) 70%,#B98A4E);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(168,126,66,.32)}
+.c3 .ic svg{width:36px;height:36px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.c3 h4{font-size:19px;color:var(--cocoa);font-weight:800;margin-top:20px;letter-spacing:1px}
+.c3 p{font-size:13px;color:#8a6a54;margin-top:10px;line-height:1.7}
+
+/* S4 径向数据环 */
+.s4{min-height:680px;padding:64px 0 58px}
+.rings{display:flex;align-items:center;justify-content:center;gap:30px;margin-top:44px}
+.ring{position:relative;width:190px;height:190px}
+.ring svg{width:190px;height:190px;transform:rotate(-90deg)}
+.ring .bgc{fill:none;stroke:#F0E2D0;stroke-width:14}
+.ring .fgc{fill:none;stroke:url(#gg);stroke-width:14;stroke-linecap:round}
+.ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .v{font-size:44px;font-weight:900;line-height:1;background:linear-gradient(180deg,#C08A44,#8a5f2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ring .v small{font-size:22px;font-weight:800}
+.ring .k{font-size:16px;color:var(--cocoa);font-weight:800;margin-top:8px;letter-spacing:2px}
+.ringwrap{display:flex;flex-direction:column;align-items:center}
+.ringwrap .cap{font-size:12px;color:#9a7d68;margin-top:12px;letter-spacing:1px}
+
+/* S5 时间轴 */
+.s5{min-height:600px;padding:62px 0 56px}
+.timeline{position:relative;margin:40px 0 0;padding-left:8px}
+.timeline::before{content:"";position:absolute;left:31px;top:24px;bottom:24px;width:2px;
+  background:linear-gradient(180deg,transparent,var(--gold) 12%,var(--gold) 88%,transparent)}
+.tl-item{position:relative;display:flex;align-items:flex-start;gap:22px;margin-bottom:20px}
+.tl-item:last-child{margin-bottom:0}
+.tl-node{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#B98A4E);color:#fff;
+  font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;z-index:2;
+  box-shadow:0 6px 14px rgba(168,126,66,.34),0 0 0 6px var(--peach1)}
+.tl-card{flex:1;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 24px;box-shadow:var(--sh)}
+.tl-card h4{font-size:18px;color:var(--cocoa);font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+.tl-card h4 svg{width:20px;height:20px;stroke:var(--gold-d);fill:none;stroke-width:1.8;flex:none}
+.tl-card p{font-size:13.5px;color:#8a6a54;margin-top:7px}
+
+/* S6 规格：产品 chip + 表 */
+.s6{min-height:660px;padding:64px 0 60px;background:linear-gradient(180deg,var(--peach2),var(--peach3))}
+.pchip{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.55);border:1px solid var(--line);
+  border-radius:18px;padding:14px 20px;margin-top:34px;box-shadow:var(--sh)}
+.pchip img{width:70px;height:70px;border-radius:14px;object-fit:cover}
+.pchip .pn{font-size:18px;font-weight:800;color:var(--cocoa);letter-spacing:1px}
+.pchip .ps{font-size:13px;color:#9a7d68;margin-top:5px}
+.spec{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;
+  background:#FFFDF9;border:1.5px solid #D8C1A8;border-radius:22px;overflow:hidden;box-shadow:var(--sh)}
+.spec .cell{padding:22px 30px;border-bottom:1px solid var(--line2)}
+.spec .cell:nth-child(odd){border-right:1px solid var(--line2)}
+.spec .cell:nth-child(5),.spec .cell:nth-child(6){border-bottom:none}
+.spec .cell:nth-child(n+5){background:#FBF4EC}
+.spec .cell .k{font-size:12px;color:#A08A7A;letter-spacing:2px}
+.spec .cell .v{font-size:19px;color:var(--ink);font-weight:800;margin-top:7px;letter-spacing:1px}
+.foot{text-align:center;margin-top:26px;font-size:12px;color:#8A7A6A;letter-spacing:.5px;line-height:1.8}
+.brandend{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px}
+.brandend .b{font-size:22px;letter-spacing:8px;font-weight:300;color:var(--cocoa)}
+.brandend .b b{font-weight:800}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#D9B879"/><stop offset=".55" stop-color="#C9A063"/><stop offset="1" stop-color="#8a5f2a"/>
+  </linearGradient>
+</defs></svg>
+<div class="page">
+
+<!-- S0 -->
+<section class="s0">
+  <span class="drop" style="width:62px;height:62px;left:38px;top:600px"></span>
+  <span class="drop" style="width:40px;height:40px;right:44px;top:616px"></span>
+  <span class="drop" style="width:26px;height:26px;left:82px;top:792px"></span>
+  <span class="drop" style="width:20px;height:20px;right:96px;top:806px"></span>
+  <span class="ripple" style="width:128px;height:128px;left:6px;top:760px"></span>
+  <span class="ripple" style="width:96px;height:96px;right:16px;top:768px"></span>
+  <span class="ripple" style="width:760px;height:760px;left:15px;top:300px;opacity:.5"></span>
+  <div class="brand">LUMIA <b>光研</b></div>
+  <div class="pname">玻尿酸高保湿精华水</div>
+  <div class="pen">Hyaluronic Acid · Deep Moisture Essence</div>
+  <div class="tag">多维玻尿酸 · 立体储水网络 · 长效锁润</div>
+  <div class="bwrap"><img class="bottle" src="bottle_wide.jpg"></div>
+  <div class="dcap"><span class="n">24h</span><span class="t">持续水润 · 即时保湿</span></div>
+</section>
+
+<!-- S1 痛点 -->
+<section class="sec s1"><div class="pad">
+  <div class="eyebrow">Skin Concerns</div>
+  <div class="chead" style="margin-top:14px"><span class="dot"></span><span class="t">干燥肌群的 4 重信号</span></div>
+  <div class="sub">换季、空调、熬夜——缺水不是表面，是整条储水链断了。</div>
+  <div class="quad">
+    <div class="qcell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9c3-2 5 2 8 0s5-2 8 0"/><path d="M4 15c3-2 5 2 8 0s5-2 8 0"/></svg></div><div class="big">干</div><div class="lab">表层脱屑 · 紧绷起皮</div><div class="en">Dryness</div></div>
+    <div class="qcell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v16M18 4v16M6 8h12M6 16h12"/></svg></div><div class="big">紧</div><div class="lab">屏障失水 · 弹性下降</div><div class="en">Tightness</div></div>
+    <div class="qcell"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3"/></svg></div><div class="big">暗</div><div class="lab">循环减慢 · 光泽钝化</div><div class="en">Dullness</div></div>
+    <div class="qcell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9z"/></svg></div><div class="big">脱</div><div class="lab">储水不足 · 深层脱水</div><div class="en">Dehydration</div></div>
+  </div>
+  <div class="lossbar">
+    <div class="tt">缺水等级 · 从表面到肌底<small>缺水越深，越难靠"补水"解决，得靠"储水"</small></div>
+    <div class="lossrow"><span class="kk">表层脱屑</span><div class="track"><div class="fill" style="width:60%"></div></div></div>
+    <div class="lossrow"><span class="kk">屏障失水</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
+    <div class="lossrow"><span class="kk">肌底脱水</span><div class="track"><div class="fill" style="width:95%"></div></div></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- S2 成分 -->
+<section class="sec s2"><div class="pad">
+  <div class="eyebrow">Core Ingredient</div>
+  <div class="chead" style="margin-top:14px"><span class="dot"></span><span class="t">玻尿酸 · 多分子量储水矩阵</span></div>
+  <div class="two">
+    <div class="skinfig">
+      <div class="sklayer skl1"><span class="sklabel">表层</span><div class="skmol skm1"></div><span class="sknote">大分子玻尿酸<br>形成锁水膜</span></div>
+      <div class="sklayer skl2"><span class="sklabel">角质层</span><div class="skmol skm2"></div><span class="sknote">中分子渗透<br>层层补水</span></div>
+      <div class="sklayer skl3"><span class="sklabel">肌底</span><div class="skmol skm3"></div><span class="sknote">小分子直达<br>肌底储水</span></div>
+    </div>
+    <div class="ingtxt">
+      <h3>三层分子量，立体锁水</h3>
+      <p>大分子驻留表层成膜，中分子渗透角质层，小分子直达肌底。三层分子量各司其职，把水「存」进皮肤每一层，而不是停在表面。</p>
+      <div class="kws"><span>表层锁水膜</span><span>角质层渗透</span><span>肌底储水</span></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- S3 协同 -->
+<section class="sec s3"><div class="pad">
+  <div class="eyebrow">Synergistic Formula</div>
+  <div class="chead" style="margin-top:14px"><span class="dot"></span><span class="t">二裂酵母 · 修护协同</span></div>
+  <div class="sub">在玻尿酸储水之上，二裂酵母复配，让「润」更稳、更弹、更亮。</div>
+  <div class="cols3">
+    <div class="c3"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"/></svg></div><h4>屏障修护</h4><p>强化皮肤屏障<br>减少经皮失水</p></div>
+    <div class="c3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><h4>微生态平衡</h4><p>维稳肌肤屏障<br>润感更持久</p></div>
+    <div class="c3"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 13c3-4 13-4 16 0"/><path d="M4 17c3-4 13-4 16 0"/></svg></div><h4>弹润光泽</h4><p>28 天弹润上扬<br>水光感可见</p></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- S4 数据环 -->
+<section class="sec s4"><div class="pad">
+  <div class="eyebrow center">Clinical Results</div>
+  <div class="chead center" style="margin:14px auto 0;justify-content:center"><span class="dot"></span><span class="t">功效，用数据说话</span></div>
+  <div class="rings">
+    <div class="ringwrap"><div class="ring">
+      <svg viewBox="0 0 190 190"><circle class="bgc" cx="95" cy="95" r="82"/><circle class="fgc" cx="95" cy="95" r="82" stroke-dasharray="515.2" stroke-dashoffset="13.6"/></svg>
+      <div class="ctr"><div class="v">97.4<small>%</small></div><div class="k">即时保湿</div></div>
+    </div><div class="cap">单次使用 · 表层水润度</div></div>
+    <div class="ringwrap"><div class="ring">
+      <svg viewBox="0 0 190 190"><circle class="bgc" cx="95" cy="95" r="82"/><circle class="fgc" cx="95" cy="95" r="82" stroke-dasharray="515.2" stroke-dashoffset="0"/></svg>
+      <div class="ctr"><div class="v">24<small>h</small></div><div class="k">持续水润</div></div>
+    </div><div class="cap">长效锁水 · 不易拔干</div></div>
+    <div class="ringwrap"><div class="ring">
+      <svg viewBox="0 0 190 190"><circle class="bgc" cx="95" cy="95" r="82"/><circle class="fgc" cx="95" cy="95" r="82" stroke-dasharray="515.2" stroke-dashoffset="92.7"/></svg>
+      <div class="ctr"><div class="v">28<small>天</small></div><div class="k">弹润光泽</div></div>
+    </div><div class="cap">周期护理 · 水光上扬</div></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- S5 时间轴 -->
+<section class="sec s5"><div class="pad">
+  <div class="eyebrow">How to Use</div>
+  <div class="chead" style="margin-top:14px"><span class="dot"></span><span class="t">早晚各一次，把水「存」进来</span></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-node">1</div><div class="tl-card"><h4><svg viewBox="0 0 24 24"><path d="M12 4c3 3 5 5 5 8a5 5 0 0 1-10 0c0-3 2-5 5-8z"/></svg>洁面后 · 化妆水步骤</h4><p>取适量于掌心或化妆棉，轻拍全脸至吸收</p></div></div>
+    <div class="tl-item"><div class="tl-node">2</div><div class="tl-card"><h4><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="3"/><path d="M8 9h8M8 13h8"/></svg>可湿敷 · 密集补水</h4><p>化妆棉浸透湿敷 5–8 分钟，密集储水</p></div></div>
+    <div class="tl-item"><div class="tl-node">3</div><div class="tl-card"><h4><svg viewBox="0 0 24 24"><path d="M4 15c4-5 12-5 16 0"/><circle cx="12" cy="8" r="3"/></svg>后续锁水</h4><p>叠加乳液 / 面霜，封层锁住玻尿酸储水膜</p></div></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- S6 规格 -->
+<section class="sec s6"><div class="pad">
+  <div class="eyebrow center">Specification</div>
+  <div class="chead center" style="margin:14px auto 0;justify-content:center"><span class="dot"></span><span class="t">产品规格</span></div>
+  <div class="pchip"><img src="bottle_wide.jpg"><div><div class="pn">LUMIA 光研 · 玻尿酸高保湿精华水</div><div class="ps">150ml / 磨砂玻璃瓶 / 香槟金盖</div></div></div>
+  <div class="spec">
+    <div class="cell"><div class="k">品 名</div><div class="v">玻尿酸高保湿精华水</div></div>
+    <div class="cell"><div class="k">净含量</div><div class="v">150ml</div></div>
+    <div class="cell"><div class="k">瓶 身</div><div class="v">磨砂玻璃 · 香槟金盖</div></div>
+    <div class="cell"><div class="k">适用肤质</div><div class="v">干性 · 中性 · 敏感肌</div></div>
+    <div class="cell"><div class="k">核心成分</div><div class="v">多分子量玻尿酸</div></div>
+    <div class="cell"><div class="k">协同成分</div><div class="v">二裂酵母发酵产物</div></div>
+  </div>
+  <div class="foot">功效数据来自第三方人体功效测试，实际效果因人而异。请置于阴凉干燥处，避免阳光直射。</div>
+  <div class="brandend"><span class="b">LUMIA <b>光研</b></span></div>
+</div></section>
+
+</div>
+</body></html>
