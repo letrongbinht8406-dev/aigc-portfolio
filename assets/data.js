@@ -10,12 +10,13 @@ window.PORTFOLIO = {
     nameEn: "GE XUEFENG",
     role: "AIGC 视觉设计师",
     tagline: "用 AIGC 把抽象需求<br><span class=\"grad\">变成可落地的视觉方案</span>",
-    sub: "7 年+ 视觉设计 · 3 年+ AIGC 生产链路。能独立完成从 ComfyUI 工作流搭建、提示词工程到 Photoshop 精修合成的完整 AI 视觉生产链路——把「会生成」做成「能交付」。",
+    sub: "7 年+ 视觉设计 · 3 年+ AIGC 生产链路。公司第一批 AIGC 工具落地推动者，独立完成从 ComfyUI 工作流搭建、提示词工程到 Photoshop 精修合成的完整链路——把「会生成」做成「能交付」，也把视觉叙事与镜头语言做成可复用的方法。",
     avatar: "assets/img/avatar.svg",
     aboutTitle: "从工作流搭建到 PS 精修，一条链路走完",
     about: [
       "长期负责游戏宣传 Banner、海报与活动视觉的全流程设计，服务过多款已上线游戏项目。环境设计专业出身，具备扎实的空间构成、色彩与光影审美功底。",
       "深度使用 ComfyUI、Stable Diffusion、Midjourney、ChatGPT 等 AIGC 工具，能独立完成从工作流搭建、模型选型、提示词工程到 Photoshop 精修合成的完整 AI 视觉生产链路。",
+      "作为公司第一批 AIGC 工具落地推动者，把 ComfyUI / SD 引入宣传物料生产，并推动 AI 视频（MiniMax H3 / 即梦）用于广告物料；近两年在业务端推动 AI 落地，让工具真正服务交付。",
       "持续产出 AI 生图测评内容，对流行游戏风格与 AIGC 最新玩法保持高敏感度——下面六个板块，每一块都是一次完整的「需求 → 控制 → 生成 → 精修 → 落地」。"
     ],
     meta: ["汕头大学 · 环境设计 · 本科", "7 年+ 视觉设计经验", "3 年+ AIGC 生产链路", "长沙"]
@@ -90,8 +91,8 @@ window.PORTFOLIO = {
       level_pct: 90
     },
     {
-      icon: "🖌️", title: "后期精修", level: "ADVANCED",
-      items: ["Photoshop 精修合成", "AE", "PR", "剪映"],
+      icon: "🖌️", title: "后期精修与视觉叙事", level: "ADVANCED",
+      items: ["Photoshop 精修合成", "AE", "PR", "剪映", "MiniMax H3", "即梦"],
       level_pct: 86
     },
     {
