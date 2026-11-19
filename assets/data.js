@@ -264,7 +264,7 @@ window.PORTFOLIO = {
       num: "05",
       kicker: "VISUAL CATEGORY EXPANSION · EYROVE ARCHIVE",
       title: "风格图库 · 六类视觉补全",
-      desc: "从 EYROVE 项目海量素材中筛选、去重、分类的视觉参考库：UI 信息、3D 艺术、动物萌宠、产品设计、绘本插画、海报人像六类，补全现有能力板块未覆盖的视觉类型。素材来源于公开授权项目，作为风格参考与选型判断依据，非本人原创作品。",
+      desc: "本人使用即梦、Seedream、GPT Image 等 AI 工具批量生成并筛选、去重、分类的视觉参考库：UI 信息、3D 艺术、动物萌宠、产品设计、绘本插画、海报人像六类，补全现有能力板块未覆盖的视觉类型。作为风格参考与选型判断依据，是 AI 生成能力 breadth 的展示，非商业项目的对外成品。",
       cover: "assets/3dart/rv-jimeng-3761cda9d26887bd6de14b981e07.webp",
       href: "case-categories.html",
       tags: ["六类补全", "筛选去重", "风格参考"]
