@@ -8,9 +8,9 @@ window.PORTFOLIO = {
   profile: {
     name: "葛雪峰",
     nameEn: "GE XUEFENG",
-    role: "AIGC 视觉设计师 · 游戏视觉方向",
+    role: "AIGC 视觉设计师",
     tagline: "用 AIGC 把抽象需求<br><span class=\"grad\">变成可落地的视觉方案</span>",
-    sub: "7 年+ 视觉设计 · 5 年+ 游戏行业。能独立完成从 ComfyUI 工作流搭建、提示词工程到 Photoshop 精修合成的完整 AI 视觉生产链路——把「会生成」做成「能交付」。",
+    sub: "7 年+ 视觉设计 · 3 年+ AIGC 生产链路。能独立完成从 ComfyUI 工作流搭建、提示词工程到 Photoshop 精修合成的完整 AI 视觉生产链路——把「会生成」做成「能交付」。",
     avatar: "assets/img/avatar.svg",
     aboutTitle: "从工作流搭建到 PS 精修，一条链路走完",
     about: [
@@ -18,14 +18,14 @@ window.PORTFOLIO = {
       "深度使用 ComfyUI、Stable Diffusion、Midjourney、ChatGPT 等 AIGC 工具，能独立完成从工作流搭建、模型选型、提示词工程到 Photoshop 精修合成的完整 AI 视觉生产链路。",
       "持续产出 AI 生图测评内容，对流行游戏风格与 AIGC 最新玩法保持高敏感度——下面六个板块，每一块都是一次完整的「需求 → 控制 → 生成 → 精修 → 落地」。"
     ],
-    meta: ["汕头大学 · 环境设计 · 本科", "7 年+ 视觉设计经验", "5 年+ 游戏行业", "长沙"]
+    meta: ["汕头大学 · 环境设计 · 本科", "7 年+ 视觉设计经验", "3 年+ AIGC 生产链路", "长沙"]
   },
 
   /* ---------- 2. Hero 数据 ---------- */
   stats: [
     { num: "6",    label: "能力板块 · 21 页作品集" },
     { num: "7年+", label: "视觉设计经验" },
-    { num: "5年+", label: "游戏行业深耕" }
+    { num: "3年+", label: "AIGC 生产链路" }
   ],
 
   /* ---------- 3. 专注方向 ---------- */
@@ -443,7 +443,7 @@ window.PORTFOLIO = {
       { k: "电话", v: "153-1363-0679" },
       { k: "城市", v: "长沙" },
       { k: "求职意向", v: "AIGC 视觉设计师 · 15-25K" },
-      { k: "背景", v: "7 年+ 视觉 / 5 年+ 游戏" }
+      { k: "背景", v: "7 年+ 视觉 / 3 年+ AIGC" }
     ]
   },
 
